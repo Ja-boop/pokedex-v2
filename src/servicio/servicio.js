@@ -1,9 +1,9 @@
-import { cargarTodosLosPokemones as cargarTodosLosPokemonesAPI } from '../api/api.js'
+import { cargarTodosLosPokemones } from '../api/api.js'
 
 export let todosLosPokemones = {};
 
-export function cargarTodosLosPokemones(todosLosPokemones){
-    cargarTodosLosPokemonesAPI(todosLosPokemones);
+export function cargarTodosLosPokemonesAPI(todosLosPokemones){
+    cargarTodosLosPokemones(todosLosPokemones);
 }
 
 
