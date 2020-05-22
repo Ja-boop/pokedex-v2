@@ -1,3 +1,8 @@
 import { cargarTodosLosPokemones as cargarTodosLosPokemonesAPI } from '../api/api.js'
 
-export function cargarTodosLosPokemonesAPI()
+export function cargarTodosLosPokemones(todosLosPokemones){
+    cargarTodosLosPokemonesAPI(todosLosPokemones);
+    console.log(todosLosPokemones);
+}
+
+

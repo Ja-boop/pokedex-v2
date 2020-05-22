@@ -1,3 +1,3 @@
-import { cargarTodosLosPokemonesAPI } from '../src/servicio/servicio.js'
+import { cargarTodosLosPokemones } from '../src/api/api.js'
 
-cargarTodosLosPokemonesAPI()
+cargarTodosLosPokemones();
