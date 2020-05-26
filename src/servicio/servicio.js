@@ -4,4 +4,4 @@ export async function pedirTodosLosPokemones() {
     const r = await pedirTodosLosPokemonesAPI()
     return r
     
-}
+} 

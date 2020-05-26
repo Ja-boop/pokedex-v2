@@ -1,4 +1,5 @@
 import { pedirTodosLosPokemones } from '../servicio/servicio.js'
+import { borrarDatosFotosColumnas } from '../servicio/servicio.js'
 
 export function manejarBarraDeBusqueda(){
     const barraDeBusqueda = document.querySelector('#barra-busqueda');
@@ -13,7 +14,9 @@ export function manejarBarraDeBusqueda(){
 
         if(searchString !== null) {
             listadoResultadosDePokemon(pokemonesFiltrados);
-        } 
+        } else {
+            borrarDatosFotosColumnas(); 
+        }
     
     }) );
     console.log(pokemonesBarraBusqueda);
@@ -34,4 +37,9 @@ function listadoResultadosDePokemon(array) {
         listaPokemon.innerHTML += ponerPokemon;
     })
 
+}
+
+function borrarDatosFotosColumnas() {
+    let nombrePokemon = document.querySelector('#lista-resultado-pokemon')
+    nombrePokemon.parentNode.removeChild(nombrePokemon);
 }
