@@ -1,9 +1,7 @@
-import { cargarTodosLosPokemones } from '../api/api.js'
+import { pedirTodosLosPokemonesAPI } from '../api/api.js'
 
-export let todosLosPokemones = {};
-
-export function cargarTodosLosPokemonesAPI(todosLosPokemones){
-    cargarTodosLosPokemones(todosLosPokemones);
+export async function pedirTodosLosPokemones() {
+    const r = await pedirTodosLosPokemonesAPI()
+    return r
+    
 }
-
-

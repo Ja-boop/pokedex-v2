@@ -1,3 +1,4 @@
-import { cargarTodosLosPokemonesAPI } from '../src/servicio/servicio.js'
+import { manejarBarraDeBusqueda } from '../src/ui/barra-de-busqueda.js'
 
-cargarTodosLosPokemonesAPI();
+manejarBarraDeBusqueda();
+

@@ -6,3 +6,17 @@ body{
     text-align: center;
 }
 
+.ocultar{
+    display: none;
+}
+
+.list-group{
+    position: relative;
+    left: 350px;
+    width: 683px;
+    height: 40px;
+}
+
+#barra-busqueda{
+    height: 35px;
+}
