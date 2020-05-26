@@ -1,12 +1,12 @@
 import { pedirTodosLosPokemones } from '../servicio/servicio.js'
-import { borrarDatosFotosColumnas } from '../servicio/servicio.js'
 
-export function manejarBarraDeBusqueda(){
+export async function manejarBarraDeBusqueda(){
     const barraDeBusqueda = document.querySelector('#barra-busqueda');
-    let pokemonesBarraBusqueda = [];
-    pedirTodosLosPokemones().then(r => barraDeBusqueda.addEventListener('keyup', (e) => {
+    let pokemonesBarraBusqueda = await pedirTodosLosPokemones();
+    console.log(pokemonesBarraBusqueda)
+    barraDeBusqueda.addEventListener('keyup', (e) => {
         const searchString = e.target.value.toLowerCase().match(/^[A-Za-z\-]+/);
-        const pokemonesFiltrados = r.filter((pokemones) => {
+        const pokemonesFiltrados = pokemonesBarraBusqueda.filter((pokemones) => {
             return (
                 pokemones.name.toLowerCase().includes(searchString)
             );  
@@ -18,8 +18,7 @@ export function manejarBarraDeBusqueda(){
             borrarDatosFotosColumnas(); 
         }
     
-    }) );
-    console.log(pokemonesBarraBusqueda);
+    }) 
 
     
 }
@@ -40,6 +39,6 @@ function listadoResultadosDePokemon(array) {
 }
 
 function borrarDatosFotosColumnas() {
-    let nombrePokemon = document.querySelector('#lista-resultado-pokemon')
-    nombrePokemon.parentNode.removeChild(nombrePokemon);
+    let nombrePokemon = document.querySelector('#lista-resultado-pokemon');
+    nombrePokemon.textContent = '';
 }
