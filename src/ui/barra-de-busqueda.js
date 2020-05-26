@@ -24,6 +24,8 @@ export async function manejarBarraDeBusqueda(){
 }
 
 function listadoResultadosDePokemon(array) {
+    let nombrePokemon = document.querySelector('#lista-resultado-pokemon');
+    nombrePokemon.textContent = '';
     const listaPokemon = document.querySelector('#lista-resultado-pokemon')
 
     array.map((pokemon) => {
