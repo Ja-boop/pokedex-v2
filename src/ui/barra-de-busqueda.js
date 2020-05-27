@@ -26,6 +26,7 @@ export async function manejarBarraDeBusqueda(){
 function listadoResultadosDePokemon(array) {
     let nombrePokemon = document.querySelector('#lista-resultado-pokemon');
     nombrePokemon.textContent = '';
+    nombrePokemon.style.display = ''
     const listaPokemon = document.querySelector('#lista-resultado-pokemon')
 
     array.map((pokemon) => {
@@ -43,4 +44,5 @@ function listadoResultadosDePokemon(array) {
 function borrarDatosFotosColumnas() {
     let nombrePokemon = document.querySelector('#lista-resultado-pokemon');
     nombrePokemon.textContent = '';
+    nombrePokemon.style.display = 'none'
 }
