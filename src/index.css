@@ -15,7 +15,6 @@ body{
     left: 350px;
     width: 683px;
     height: 200px;
-    overflow:hidden; overflow-y:scroll;
 }
 
 #barra-busqueda{
