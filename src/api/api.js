@@ -10,3 +10,15 @@ export async function pedirTodosLosPokemonesAPI() {
     }
     
 }
+
+export async function pedirDatosDelPokemon(url){
+    try{
+        const respuesta = await fetch(url);
+        const data = await respuesta.json();
+        return data;
+    }
+
+    catch(error) {
+        console.log(error + "Hubo un error en la peticion");
+    }
+}
