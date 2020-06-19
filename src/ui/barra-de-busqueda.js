@@ -1,9 +1,9 @@
-import { pedirTodosLosPokemones } from '../servicio/servicio.js'
+import { servicioPedirTodosLosPokemones } from '../servicio/servicio.js'
 import { listadoResultadosDePokemon } from '../ui/listador.js'
 import { borrarDatosFotosColumnas } from '../ui/listador.js'
 import { hidearResultados } from '../ui/listador.js'
 import { mostrarResultadosFocus } from '../ui/listador.js'
-import { mostrarInfo } from '../ui/listador.js'
+import { mostrarPokemon } from '../ui/listador.js'
 
 export function manejarBusqueda(){
     manejarBarraDeBusqueda();
@@ -11,27 +11,26 @@ export function manejarBusqueda(){
 
 async function manejarBarraDeBusqueda(){
     const barraDeBusqueda = document.querySelector('#barra-busqueda');
-    let pokemonesBarraBusqueda = await pedirTodosLosPokemones();
+    let pokemonesBarraBusqueda = await servicioPedirTodosLosPokemones();
     
     barraDeBusqueda.addEventListener('keyup', (e) => {
-        const searchString = e.target.value.toLowerCase().match(/^[A-Za-z\-]+/);
-        const pokemonesFiltrados = pokemonesBarraBusqueda.filter((pokemones) => {
+        const textoBusqueda = e.target.value.toLowerCase().match(/^[A-Za-z\-]+/);
+        const pokemonesFiltrados = pokemonesBarraBusqueda.results.filter((pokemones) => {
             return (
-                pokemones.name.toLowerCase().includes(searchString)
+                pokemones.name.toLowerCase().includes(textoBusqueda)
             );  
         });
 
-        if(searchString !== null) {
+        if(textoBusqueda !== null) { // Si no pongo esto, cada vez que borre el input del usuario, va a salir un pokemon llamado "null"
             listadoResultadosDePokemon(pokemonesFiltrados);
-            hidearResultados();
-            mostrarInfo();  
+            const pokemon = document.querySelectorAll('.list-group-item');
+            mostrarPokemon(pokemon);  
+            hidearResultados(pokemon);
         } else {
             borrarDatosFotosColumnas(); 
+            
         };
     }); 
-
-   
-  
   
     barraDeBusqueda.addEventListener('focus', (e) => {
         mostrarResultadosFocus();

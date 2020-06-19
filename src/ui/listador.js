@@ -26,22 +26,33 @@ export function mostrarResultadosFocus(){
     nombrePokemon.style.display = 'block'
 }
 
-export async function mostrarInfo(){
-    const pokemon = document.querySelector('.list-group-item');
-    const url = pokemon.getAttribute('href');
-    const datosDelPokemon = await pedirDatosDelPokemon(url);
-    pokemon.addEventListener('click', (e) => {
-        console.log(datosDelPokemon);
-    });
+export function mostrarPokemon(pokemones){
+
+    for (const pokemon of pokemones) {
+        pokemon.addEventListener('click', (e) => {
+            let url = e.currentTarget.attributes.href.value
+            pedirDatos(url);
+        });
+    }
+   
 }
 
-export function hidearResultados(){
-    const pokemon = document.querySelector('.list-group-item');
-    pokemon.addEventListener('blur', (e) => {
-        hidearResultadosOnBlur();
-    });
+export function hidearResultados(pokemones){
+
+    for ( const pokemon of pokemones ) {
+        pokemon.addEventListener('blur', (e) => {
+            hidearResultadosOnBlur(pokemon);
+        });
+    }
+    
 }
 
 function hidearResultadosOnBlur(){
     nombrePokemon.style.display = 'none'
 }
+
+async function pedirDatos(url){
+    const datosDelPokemon = await pedirDatosDelPokemon(url);
+    return datosDelPokemon
+};
+
