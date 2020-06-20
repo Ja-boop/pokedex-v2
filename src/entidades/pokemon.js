@@ -1,4 +1,4 @@
-export default class Pokemon{
+export class Pokemon{
     constructor(id, nombre, foto, habilidades = [], tipos = [], movimientos = []) {
         this.id = id;
         this.nombre = nombre;

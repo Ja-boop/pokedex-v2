@@ -1,4 +1,4 @@
-export default class ListadoPokemones {
+export class ListadoPokemones {
     constructor(nombresPokemones) {
         this.nombresPokemones = nombresPokemones;
     }

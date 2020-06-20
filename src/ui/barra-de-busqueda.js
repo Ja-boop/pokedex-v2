@@ -4,6 +4,7 @@ import { borrarDatosFotosColumnas } from '../ui/listador.js'
 import { hidearResultados } from '../ui/listador.js'
 import { mostrarResultadosFocus } from '../ui/listador.js'
 import { mostrarPokemon } from '../ui/listador.js'
+import { mapearListadoPokemones } from '../mapeadores/mapeadores.js'
 
 export function manejarBusqueda(){
     manejarBarraDeBusqueda();
@@ -12,12 +13,13 @@ export function manejarBusqueda(){
 async function manejarBarraDeBusqueda(){
     const barraDeBusqueda = document.querySelector('#barra-busqueda');
     let pokemonesBarraBusqueda = await servicioPedirTodosLosPokemones();
+    let pokemonesResultados = await mapearListadoPokemones(pokemonesBarraBusqueda);
     
     barraDeBusqueda.addEventListener('keyup', (e) => {
         const textoBusqueda = e.target.value.toLowerCase().match(/^[A-Za-z\-]+/);
-        const pokemonesFiltrados = pokemonesBarraBusqueda.results.filter((pokemones) => {
+        const pokemonesFiltrados = pokemonesResultados.nombresPokemones.filter((pokemones) => {
             return (
-                pokemones.name.toLowerCase().includes(textoBusqueda)
+                pokemones.toLowerCase().includes(textoBusqueda)
             );  
         });
 
