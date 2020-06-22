@@ -29,9 +29,11 @@ export function mostrarResultadosFocus(){
 export function mostrarPokemon(pokemones){
 
     for (const pokemon of pokemones) {
-        pokemon.addEventListener('click', (e) => {
+        pokemon.addEventListener('click', async function(e) {
             let url = e.currentTarget.attributes.href.value
-            pedirDatos(url);
+            let pokemon = await pedirDatos(url);
+
+            console.log(pokemon)
         });
     }
    
@@ -55,4 +57,5 @@ async function pedirDatos(url){
     const datosDelPokemon = await pedirDatosDelPokemon(url);
     return datosDelPokemon
 };
+
 

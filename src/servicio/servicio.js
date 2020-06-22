@@ -1,18 +1,6 @@
 import { pedirTodosLosPokemonesAPI } from '../api/api.js'
 import { guardarPeticionAPIEnStorage } from "../storage/storage.js";
 
-
-export async function pedirTodosLosPokemones() {
-    try{
-        const r = await pedirTodosLosPokemonesAPI();
-        return mapearListadoPokemones(r)
-    }
-    
-    catch(error){
-        console.log(error + "Hubo un problema en la peticion")
-    }
-} 
-
 export async function servicioPedirTodosLosPokemones() {
 
     try{
@@ -24,3 +12,5 @@ export async function servicioPedirTodosLosPokemones() {
         return data
     }
 }
+
+

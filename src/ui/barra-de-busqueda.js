@@ -17,9 +17,9 @@ async function manejarBarraDeBusqueda(){
     
     barraDeBusqueda.addEventListener('keyup', (e) => {
         const textoBusqueda = e.target.value.toLowerCase().match(/^[A-Za-z\-]+/);
-        const pokemonesFiltrados = pokemonesResultados.nombresPokemones.filter((pokemones) => {
+        const pokemonesFiltrados = pokemonesResultados.nombresYUrlPokemones.filter((pokemones) => {
             return (
-                pokemones.toLowerCase().includes(textoBusqueda)
+                pokemones.name.toLowerCase().includes(textoBusqueda)
             );  
         });
 

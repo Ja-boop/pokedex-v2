@@ -4,5 +4,5 @@ export async function guardarPeticionAPIEnStorage() {
 
     let todosLosPokemones = await pedirTodosLosPokemonesAPI();
 
-    localStorage.setItem( 'todosLosPokemones', JSON.stringify( todosLosPokemones ) )
+    localStorage.setItem( 'todosLosPokemones', JSON.stringify(todosLosPokemones) )
 }
