@@ -1,4 +1,5 @@
-import { pedirDatosDelPokemon } from '../api/api.js'
+import { servicioPedirPokemon } from '../servicio/servicio.js'
+import { mapearPokemon } from "../mapeadores/mapeadores.js";
 
 const nombrePokemon = document.querySelector('#lista-resultado-pokemon');
 export function listadoResultadosDePokemon(array) {
@@ -31,9 +32,11 @@ export function mostrarPokemon(pokemones){
     for (const pokemon of pokemones) {
         pokemon.addEventListener('click', async function(e) {
             let url = e.currentTarget.attributes.href.value
-            let pokemon = await pedirDatos(url);
+            let pokemonData = await servicioPedirPokemon(url);
 
-            console.log(pokemon)
+            let clasePokemon = mapearPokemon(pokemonData);
+
+            console.log(clasePokemon)
         });
     }
    
