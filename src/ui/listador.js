@@ -1,6 +1,7 @@
 import { servicioPedirPokemon } from '../servicio/servicio.js'
 import { mapearPokemon } from "../mapeadores/mapeadores.js";
-const $fotoPrincpial = document.querySelector('#imagen-pokemon')
+const $fotoPrincpial = document.querySelector('#imagen-pokemon');
+const $tiposPokemon = document.querySelector('#tipos-pokemon');
 
 const nombrePokemon = document.querySelector('#lista-resultado-pokemon');
 export function listadoResultadosDePokemon(array) {
@@ -37,15 +38,21 @@ export function mostrarPokemon(pokemones){
 
             let clasePokemon = mapearPokemon(pokemonData);
 
-            mostrarPokemonMapeado(clasePokemon.foto);
+            mostrarPokemonMapeado(clasePokemon.foto, clasePokemon.tipos);
         });
     }
    
 }
 
-function mostrarPokemonMapeado(fotoPrincpial){
+function mostrarPokemonMapeado(fotoPrincpial, tipos){
     $fotoPrincpial.innerHTML = "";
     $fotoPrincpial.innerHTML += `<img src="${fotoPrincpial}">`
+
+    $tiposPokemon.innerHTML = "";
+    for(i = 0; i < tipos.length; i++){
+        $tiposPokemon.innerHTML += tipos[i];
+    }
+
 }
 
 export function hidearResultados(pokemones){
