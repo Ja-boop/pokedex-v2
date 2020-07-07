@@ -1,10 +1,7 @@
 import { pedirTodosLosPokemonesAPI } from "../api/api.js";
 import { pedirDatosDelPokemonAPI } from "../api/api.js";
 
-export async function guardarPeticionAPIEnStorage() {
-
-    let todosLosPokemones = await pedirTodosLosPokemonesAPI();
-
+export async function guardarPeticionAPIEnStorage(todosLosPokemones) {
     localStorage.setItem( 'todosLosPokemones', JSON.stringify(todosLosPokemones) )
 }
 

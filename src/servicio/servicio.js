@@ -9,9 +9,14 @@ export async function servicioPedirTodosLosPokemones() {
         let todosLosPokemones = JSON.parse( localStorage.getItem('todosLosPokemones') );
         return todosLosPokemones
     } else{
-        let data = await pedirTodosLosPokemonesAPI();
-        guardarPeticionAPIEnStorage();
-        return data
+        
+        try{
+            let data = await pedirTodosLosPokemonesAPI();
+            guardarPeticionAPIEnStorage(data);
+            return data
+        }catch (e) {
+            console.log(e);
+        }
     }
 }
 
