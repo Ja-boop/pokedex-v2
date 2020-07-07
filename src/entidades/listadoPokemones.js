@@ -1,5 +1,5 @@
-export default class ListadoPokemones {
-    constructor(nombresPokemones) {
-        this.nombresPokemones = nombresPokemones;
+export class ListadoPokemones {
+    constructor(nombresYUrlPokemones) {
+        this.nombresYUrlPokemones = nombresYUrlPokemones;
     }
 }

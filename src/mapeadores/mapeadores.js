@@ -1,6 +1,6 @@
 import { ListadoPokemones } from "../entidades/listadoPokemones.js";
 import { Movimientos } from "../entidades/movimientos.js";
-
+import { Pokemon } from "../entidades/pokemon.js";
 
 export function mapearPokemon(datosApi) {
     const {
@@ -31,6 +31,6 @@ export function mapearListadoPokemones(datosApi){
     } = datosApi;
 
     return new ListadoPokemones(
-        resultados.map((pokemon) => pokemon.name)
+        resultados
     );
 }

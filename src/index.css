@@ -1,22 +1,28 @@
-body{
-    background-color: red !important;
+* {
+    margin: 0px;
+    padding: 0px;
 }
-
-.logo{
+body {
+    background-color: red;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+#pokedex {
+    width: 70%;
+}
+.logo {
     text-align: center;
 }
-
-.ocultar{
+.ocultar {
     display: none;
 }
-
-.list-group{
-    position: relative;
-    left: 350px;
-    width: 683px;
-    height: 200px;
+#lista-resultado-pokemon {
+    width: 100%;
+    overflow: auto;
+    max-height: 300px;
 }
-
-#barra-busqueda{
-    height: 35px;
+input {
+    padding: 10px;
+    width: 100%;
 }

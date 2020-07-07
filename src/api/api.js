@@ -11,7 +11,7 @@ export async function pedirTodosLosPokemonesAPI() {
     
 }
 
-export async function pedirDatosDelPokemon(url){
+export async function pedirDatosDelPokemonAPI(url){
     try{
         const respuesta = await fetch(url);
         const data = await respuesta.json();
