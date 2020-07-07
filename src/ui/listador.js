@@ -38,6 +38,7 @@ export function mostrarPokemon(pokemones){
 
             let clasePokemon = mapearPokemon(pokemonData);
 
+            console.log(clasePokemon.tipos);
             mostrarPokemonMapeado(clasePokemon.foto, clasePokemon.tipos);
         });
     }
@@ -49,7 +50,8 @@ function mostrarPokemonMapeado(fotoPrincpial, tipos){
     $fotoPrincpial.innerHTML += `<img src="${fotoPrincpial}">`
 
     $tiposPokemon.innerHTML = "";
-    for(i = 0; i < tipos.length; i++){
+    let i;
+    for (i = 0; i < tipos.length; i++){
         $tiposPokemon.innerHTML += tipos[i];
     }
 
