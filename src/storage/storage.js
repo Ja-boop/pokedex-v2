@@ -11,3 +11,12 @@ export async function guardarPeticionPokemonAPIEnStorage(url) {
 
     localStorage.setItem( `${url}`, JSON.stringify(pokemon) )
 }
+
+export async function cargarPokemonesLocalStorage() {
+    let todosLosPokemones = JSON.parse( localStorage.getItem('todosLosPokemones') );
+    if(todosLosPokemones === null) {
+        throw new Error("No estan todos los pokemones guardados en local storage")
+    }
+
+    return todosLosPokemones
+}
