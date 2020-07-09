@@ -3,7 +3,7 @@ import { listadoResultadosDePokemon } from '../ui/listador.js'
 import { borrarDatosFotosColumnas } from '../ui/listador.js'
 import { hidearResultados } from '../ui/listador.js'
 import { mostrarResultadosFocus } from '../ui/listador.js'
-import { mostrarPokemon } from '../ui/listador.js'
+import { mostrarPokemon } from '../ui/mostrarPokemon.js'
 import { mapearListadoPokemones } from '../mapeadores/mapeadores.js'
 
 export function manejarBusqueda(){
