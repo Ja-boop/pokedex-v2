@@ -1,16 +1,25 @@
-import { pedirTodosLosPokemonesAPI } from "../api/api.js";
-import { pedirDatosDelPokemonAPI } from "../api/api.js";
+export async function cargarPokemonesLocalStorage() {
+    let todosLosPokemones = JSON.parse( localStorage.getItem('todosLosPokemones') );
+    if(todosLosPokemones === null) {
+        throw new Error("No estan todos los pokemones guardados en local storage")
+    }
 
-export async function guardarPeticionAPIEnStorage() {
+    return todosLosPokemones
+}
 
-    let todosLosPokemones = await pedirTodosLosPokemonesAPI();
+export async function cargarPokemonLocalStorage(url) {
+    let pokemon = JSON.parse( localStorage.getItem(`${url}`) );
+    if(pokemon === null) {
+        throw new Error("No se encuentra el pokemon")
+    }
 
+    return pokemon;
+}
+
+export async function guardarPeticionTodosLosPokemonesAPIEnStorage(todosLosPokemones) {
     localStorage.setItem( 'todosLosPokemones', JSON.stringify(todosLosPokemones) )
 }
 
-export async function guardarPeticionPokemonAPIEnStorage(url) {
-
-    let pokemon = await pedirDatosDelPokemonAPI(url);
-
+export async function guardarPeticionPokemonAPIEnStorage(url, pokemon) {
     localStorage.setItem( `${url}`, JSON.stringify(pokemon) )
 }
