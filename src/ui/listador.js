@@ -3,7 +3,6 @@ export function listadoResultadosDePokemon(array) {
     nombrePokemon.textContent = '';
     nombrePokemon.style.display = ''
         
-    
     array.map((pokemon) => {
         let ponerPokemon = `
         <button href=${pokemon.url} 
@@ -12,7 +11,6 @@ export function listadoResultadosDePokemon(array) {
     
         nombrePokemon.innerHTML += ponerPokemon;
     })
-    
 }
 
 export function borrarDatosFotosColumnas() {
