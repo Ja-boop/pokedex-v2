@@ -1,7 +1,9 @@
 import { pedirTodosLosPokemonesAPI } from '../api/api.js'
-import { guardarPeticionAPIEnStorage } from "../storage/storage.js";
+import { guardarPeticionTodosLosPokemonesAPIEnStorage } from "../storage/storage.js";
+import { guardarPeticionPokemonAPIEnStorage } from "../storage/storage.js";
 import { pedirDatosDelPokemonAPI } from "../api/api.js";
 import { cargarPokemonesLocalStorage } from "../storage/storage.js";
+import { cargarPokemonLocalStorage } from "../storage/storage.js";
 
 export async function servicioPedirTodosLosPokemones() {
         
@@ -9,9 +11,8 @@ export async function servicioPedirTodosLosPokemones() {
         let todosLosPokemones = await cargarPokemonesLocalStorage();
         return todosLosPokemones;
     }catch (e) {
-        console.log(e);
-        let data = await pedirTodosLosPokemonesAPI();
-        guardarPeticionAPIEnStorage(data);
+        const data = await pedirTodosLosPokemonesAPI();
+        guardarPeticionTodosLosPokemonesAPIEnStorage(data);
         return data
     }
     
@@ -20,13 +21,11 @@ export async function servicioPedirTodosLosPokemones() {
 export async function servicioPedirPokemon(url) {
 
     try{
-        let data = await pedirDatosDelPokemonAPI(url);
+        const pokemon = await cargarPokemonLocalStorage(url);
+        return pokemon;
+    }catch (e) {
+        const data = await pedirDatosDelPokemonAPI(url);
+        guardarPeticionPokemonAPIEnStorage(url, data);
         return data
-            
-    } catch (e) {
-        console.log(e);
     }
-
-    
-
 }
