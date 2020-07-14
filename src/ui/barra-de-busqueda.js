@@ -13,7 +13,7 @@ export function manejarBusqueda(){
 async function manejarBarraDeBusqueda(){
     const barraDeBusqueda = document.querySelector('#barra-busqueda');
     let pokemonesBarraBusqueda = await servicioPedirTodosLosPokemones();
-    let pokemonesResultados = await mapearListadoPokemones(pokemonesBarraBusqueda);
+    let pokemonesResultados = mapearListadoPokemones(pokemonesBarraBusqueda);
     
     barraDeBusqueda.addEventListener('keyup', (e) => {
         const textoBusqueda = e.target.value.toLowerCase().match(/^[A-Za-z\-]+/);
