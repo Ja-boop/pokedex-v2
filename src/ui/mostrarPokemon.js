@@ -5,8 +5,6 @@ const $tiposPokemon = document.querySelector('#tipos-pokemon');
 const $idPokemon = document.querySelector('#id-pokemon');
 const $nombrePokemon = document.querySelector('#nombre-pokemon');
 
-
-
 export function mostrarPokemon(pokemones){
 
     for (const pokemon of pokemones) {
