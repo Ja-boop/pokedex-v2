@@ -1,5 +1,21 @@
 const nombrePokemon = document.querySelector('#lista-resultado-pokemon');
-export function listadoResultadosDePokemon(array) {
+
+export function listarPokemones(textoBusqueda, pokemonesResultados){
+    if(textoBusqueda !== null) { // Si no pongo esto, cada vez que borre el input del usuario, va a salir un pokemon llamado "null"
+        const pokemonesFiltrados = pokemonesResultados.nombresYUrlPokemones.filter((pokemones) => {
+        return (
+            pokemones.name.toLowerCase().includes(textoBusqueda)
+        );  
+    });
+        listadoResultadosDePokemon(pokemonesFiltrados); 
+    }else {
+        borrarDatosFotosColumnas();    
+    };
+}
+
+
+
+function listadoResultadosDePokemon(array) {
     nombrePokemon.textContent = '';
     nombrePokemon.style.display = ''
         
